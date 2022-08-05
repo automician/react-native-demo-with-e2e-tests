@@ -1,13 +1,8 @@
 import React from 'react'
-import {
-  StyleSheet,
-  StatusBar,
-  View,
-  TouchableHighlight,
-  Text,
-} from 'react-native'
+import {StyleSheet, StatusBar, View} from 'react-native'
 import {App as WelcomeApp} from './sub-apps/welcome-to-rn/App'
 import {App as StockPriceApp} from './sub-apps/stock-price-app/App'
+import {Button} from './components/Button'
 
 export const App = () => {
   const [apps, setApps] = React.useState([<StockPriceApp />, <WelcomeApp />])
@@ -19,11 +14,9 @@ export const App = () => {
   return (
     <View style={styles.container}>
       <StatusBar />
-      <TouchableHighlight onLongPress={switchToNextApp} underlayColor="white">
-        <View style={styles.buttonFullWidth}>
-          <Text style={styles.buttonText}>LongPress to switch App</Text>
-        </View>
-      </TouchableHighlight>
+      <Button onLongPress={switchToNextApp} underlayColor="white">
+        LongPress to switch App
+      </Button>
       {apps[0]}
     </View>
   )
@@ -31,18 +24,4 @@ export const App = () => {
 
 const styles = StyleSheet.create({
   container: {},
-  button: {
-    marginBottom: 30,
-    width: 260,
-    alignItems: 'center',
-    backgroundColor: '#2196F3',
-  },
-  buttonFullWidth: {
-    backgroundColor: '#2196F3',
-  },
-  buttonText: {
-    textAlign: 'center',
-    padding: 20,
-    color: 'white',
-  },
 })
