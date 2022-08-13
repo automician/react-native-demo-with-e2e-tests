@@ -1,7 +1,8 @@
-import {Element} from 'selenidejs'
+import {Element, perform} from 'selenidejs'
 import {lambda} from 'selenidejs/built/utils'
 
 export const command = {
+  ...perform,
   longPress: ({duration} = {duration: 1000}) =>
     lambda('longPress', async (element: Element) => {
       const driver =
