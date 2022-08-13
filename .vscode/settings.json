@@ -9,4 +9,5 @@
     "eslint.lintTask.enable": true,
 
     "eslint.alwaysShowStatus": true,
+    "autoHide.autoHideSideBar": true,
 }
