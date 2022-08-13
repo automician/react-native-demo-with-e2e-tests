@@ -6,14 +6,14 @@ import {mobile} from './utils/selenidejs/mobile.extensions'
 import {By} from 'selenium-webdriver'
 
 export const shared: {
-  driver: wdio.Browser<'async'>,
+  wdioDriver: wdio.Browser<'async'>,
+  sehqDriver: WebDriver,
   browser: selenide.Browser,
-  webdriver: WebDriver,
 } = {
-  driver: undefined,
-  webdriver: undefined,
+  wdioDriver: undefined,
+  sehqDriver: undefined,
   browser: selenide.Browser.configuredWith()
-    .driver(() => shared.webdriver)
+    .driver(() => shared.sehqDriver)
     ._locationStrategy(mobile.selectorToBy)
     .timeout(10000)
     .build(),

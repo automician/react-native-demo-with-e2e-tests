@@ -5,25 +5,28 @@ import {config} from './wdio.appium.android.conf'
 import {shared} from './shared'
 
 beforeEach(async () => {
-  if (!shared.driver) {
-    shared.driver = await wdio.remote(config)
+  if (!shared.wdioDriver) {
+    shared.wdioDriver = await wdio.remote(config)
 
     const {hostname, port, path} = config
     const client = new HttpClient(`http://${hostname}:${port}${path}`)
     const executor = new Executor(client)
-    shared.webdriver = new WebDriver(
-      new Session(shared.driver?.sessionId, shared.driver?.capabilities || {}),
+    shared.sehqDriver = new WebDriver(
+      new Session(
+        shared.wdioDriver?.sessionId,
+        shared.wdioDriver?.capabilities || {},
+      ),
       executor,
     )
   } else {
-    await shared.driver.launchApp()
+    await shared.wdioDriver.launchApp()
   }
 })
 
 afterEach(async () => {
-  await shared.driver?.removeApp('com.velas.mobile-velas-account')
+  await shared.wdioDriver?.removeApp('com.velas.mobile-velas-account')
 })
 
 afterAll(async () => {
-  await shared.driver?.deleteSession()
+  await shared.wdioDriver?.deleteSession()
 })
