@@ -22,13 +22,6 @@ export const App = () => {
       >
         LongPress to switch App
       </Button>
-      <Button
-        onPress={switchToNextApp}
-        underlayColor="white"
-        {...qaid('switchToNextApp-onPress')}
-      >
-        Click to switch App
-      </Button>
       {apps[0]}
     </View>
   )
