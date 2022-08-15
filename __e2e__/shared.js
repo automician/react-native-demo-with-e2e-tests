@@ -1,5 +1,4 @@
 import * as wdio from 'webdriverio'
-import * as selenide from 'selenidejs'
 import {Configuration} from 'selenidejs'
 import {WebDriver} from 'selenium-webdriver'
 import {mobile} from './utils/selenidejs/mobile.extensions'
@@ -8,11 +7,11 @@ import {By} from 'selenium-webdriver'
 export const shared: {
   wdioDriver: wdio.Browser<'async'>,
   sehqDriver: WebDriver,
-  browser: selenide.Browser,
+  browser: Selenide.Browser,
 } = {
   wdioDriver: undefined,
   sehqDriver: undefined,
-  browser: selenide.Browser.configuredWith()
+  browser: Selenide.Browser.configuredWith()
     .driver(() => shared.sehqDriver)
     ._locationStrategy(mobile.selectorToBy)
     .timeout(10000)
@@ -28,7 +27,7 @@ export function $(
         args?: any[],
       },
   customized?: Partial<Configuration>,
-): selenide.Element {
+): Selenide.Element {
   return shared.browser.element(located, customized)
 }
 
@@ -41,6 +40,6 @@ export function $$(
         args?: any[],
       },
   customized?: Partial<Configuration>,
-): selenide.Collection {
+): Selenide.Collection {
   return shared.browser.all(located, customized)
 }
