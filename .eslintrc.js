@@ -5,6 +5,9 @@ module.exports = {
   env: {
     'jest/globals': true,
   },
+  globals: {
+    globalThis: 'writable',
+  },
   rules: {
     semi: ['error', 'never'],
   },

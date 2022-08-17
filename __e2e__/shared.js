@@ -9,8 +9,12 @@ export const shared: {
   sehqDriver: WebDriver,
   browser: Selenide.Browser,
 } = {
-  wdioDriver: undefined,
-  sehqDriver: undefined,
+  get wdioDriver() {
+    return globalThis.wdioDriver
+  },
+  get sehqDriver() {
+    return globalThis.sehqDriver
+  },
   browser: Selenide.Browser.configuredWith()
     .driver(() => shared.sehqDriver)
     ._locationStrategy(mobile.selectorToBy)

@@ -6,6 +6,9 @@ The project is developed as a bunch of demo applications showing different aspec
 
 ## TODOs
 
+* cover ios app in tests
+* consider adding $ helper to globals,
+  * should we use browser & drivers from globals explicitely too? ;) (not via shared...)
 * click to switch apps, longPress to open dialog to select the app you want
 * move src files to root src/ dir for cleaner structure
 * improve selenidejs to be able
