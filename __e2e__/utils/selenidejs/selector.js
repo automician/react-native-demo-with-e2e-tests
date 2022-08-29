@@ -1,7 +1,5 @@
 import {By} from 'selenium-webdriver'
 
-// TODO: rename mobile.extensions.js to something like mobile.utils.js or just mobile.js
-
 export const selector = {
   toMobileBy(value: string): By {
     // BY XPATH
