@@ -1,7 +1,9 @@
 import {By} from 'selenium-webdriver'
 
-export const mobile = {
-  selectorToBy(value: string): By {
+// TODO: rename mobile.extensions.js to something like mobile.utils.js or just mobile.js
+
+export const selector = {
+  toMobileBy(value: string): By {
     // BY XPATH
     if (['/', '(', '..', './', '*/'].some(it => value.startsWith(it))) {
       return new By('xpath', value)

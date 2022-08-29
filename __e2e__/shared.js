@@ -1,7 +1,7 @@
 import * as wdio from 'webdriverio'
 import {Configuration} from 'selenidejs'
 import {WebDriver} from 'selenium-webdriver'
-import {mobile} from './utils/selenidejs/mobile.extensions'
+import {selector} from './utils/selenidejs/selector'
 import {By} from 'selenium-webdriver'
 
 export const shared: {
@@ -17,7 +17,7 @@ export const shared: {
   },
   browser: Selenide.Browser.configuredWith()
     .driver(() => shared.sehqDriver)
-    ._locationStrategy(mobile.selectorToBy)
+    ._locationStrategy(selector.toMobileBy)
     .timeout(10000)
     .build(),
 }
