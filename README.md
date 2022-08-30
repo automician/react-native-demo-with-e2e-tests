@@ -6,6 +6,8 @@ The project is developed as a bunch of demo applications showing different aspec
 
 ## TODOs
 
+* add scroll selenidejs mobile extension
+  * cover both types of ReactNative scrolling controls (with and without preloading all elements os scrollable list)
 * cover ios app in tests
 * consider adding $ helper to globals,
   * should we use browser & drivers from globals explicitely too? ;) (not via shared...)
